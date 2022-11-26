@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfa1bed7dae5c2463ad67165bc862dd4",
+    "content-hash": "af8ea1f2f63d01ecb5213f3594fa0e9b",
     "packages": [
         {
             "name": "brick/math",
@@ -2833,6 +2833,65 @@
                 }
             ],
             "time": "2022-11-05T23:03:38+00:00"
+        },
+        {
+            "name": "rvwaarloos/rvwaarloos",
+            "version": "1.0.1",
+            "dist": {
+                "type": "path",
+                "url": "d:/proto/packager/packages/rvwaarloos/rvwaarloos",
+                "reference": "e201d628ce199890f1b601dd535cf92e89e1760e"
+            },
+            "require": {
+                "illuminate/support": "~9"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~7",
+                "phpunit/phpunit": "~9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rvwaarloos\\Rvwaarloos\\RvwaarloosServiceProvider"
+                    ],
+                    "aliases": {
+                        "Rvwaarloos": "Rvwaarloos\\Rvwaarloos\\Facades\\Rvwaarloos"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rvwaarloos\\Rvwaarloos\\": "src/",
+                    "Rvwaarloos\\Rvwaarloos\\Database\\Factories\\": "database/factories/",
+                    "Rvwaarloos\\Rvwaarloos\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Rvwaarloos\\Rvwaarloos\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luc Van Keer",
+                    "email": "luc.vankeer@telenet.be",
+                    "homepage": "http://author.com"
+                }
+            ],
+            "description": "Base package for RV Site",
+            "homepage": "https://github.com/rvwaarloos/rvwaarloos",
+            "keywords": [
+                "Laravel",
+                "Rvwaarloos"
+            ],
+            "transport-options": {
+                "symlink": false,
+                "relative": false
+            }
         },
         {
             "name": "symfony/console",

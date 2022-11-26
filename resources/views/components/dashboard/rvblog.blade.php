@@ -7,7 +7,7 @@
         <div class="grid gap-2 md:grid-cols-4">
             <div class="relative mx-6">
                 <div class="bg-white rounded-lg shadow-md">
-                    <img src="https://source.unsplash.com/collection/190727/300x300" class="w-full rounded-t-lg" />
+                    {{-- <img src="https://source.unsplash.com/collection/190727/300x300" class="w-full rounded-t-lg" /> --}}
                     <div class="absolute bottom-32 right-4 rounded-xl bg-yellow-500 px-2 py-0.5 text-white">Category
                     </div>
                     <div class="p-6">
@@ -18,7 +18,7 @@
             </div>
             <div class="relative mx-6">
                 <div class="bg-white rounded-lg shadow-md">
-                    <img src="https://source.unsplash.com/collection/190727/300x300" class="w-full rounded-t-lg" />
+                    {{-- <img src="https://source.unsplash.com/collection/190727/300x300" class="w-full rounded-t-lg" /> --}}
                     <div class="absolute bottom-32 right-4 rounded-xl bg-yellow-500 px-2 py-0.5 text-white">Category
                     </div>
                     <div class="p-6">
@@ -29,7 +29,7 @@
             </div>
             <div class="relative mx-6">
                 <div class="bg-white rounded-lg shadow-md">
-                    <img src="https://source.unsplash.com/collection/190727/300x300" class="w-full rounded-t-lg" />
+                    {{-- <img src="https://source.unsplash.com/collection/190727/300x300" class="w-full rounded-t-lg" /> --}}
                     <div class="absolute bottom-32 right-4 rounded-xl bg-yellow-500 px-2 py-0.5 text-white">Category
                     </div>
                     <div class="p-6">
@@ -40,7 +40,7 @@
             </div>
             <div class="relative mx-6">
                 <div class="bg-white rounded-lg shadow-md">
-                    <img src="https://source.unsplash.com/collection/190727/300x300" class="w-full rounded-t-lg" />
+                    {{-- <img src="https://source.unsplash.com/collection/190727/300x300" class="w-full rounded-t-lg" /> --}}
                     <div class="absolute bottom-32 right-4 rounded-xl bg-yellow-500 px-2 py-0.5 text-white">Category
                     </div>
                     <div class="p-6">
