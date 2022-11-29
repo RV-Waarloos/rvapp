@@ -23,7 +23,7 @@
             class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
 
              @auth
-             <a class="text-gray-800 hover:text-indigo-400" href="#">Leden</a>
+             <a class="text-gray-800 hover:text-indigo-400" href="{{ route('clubmembers.list') }}">Leden</a>
              <a class="text-gray-800 hover:text-indigo-400" href="#">Afdelingen</a>
              <a class="text-gray-800 hover:text-indigo-400" href="#features">Tap Calender</a>
              <a class="text-gray-800 hover:text-indigo-400" href="#blogs">Blogs</a>

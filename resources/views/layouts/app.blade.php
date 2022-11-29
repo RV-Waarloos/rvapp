@@ -12,6 +12,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
+        @livewireScripts
+        @stack('scripts')
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen xl:max-w-7xl mx-auto">
@@ -38,5 +41,6 @@
 
             @include('layouts.footer')
         </div>
+        @livewire('notifications')
     </body>
 </html>
