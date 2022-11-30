@@ -83,6 +83,13 @@
             <x-input-error class="mt-2" :messages="$errors->get('city')" />
         </div>
 
+        <div>
+            <x-input-label for="isvisible" :value="__('Ik wens dat mijn gegevens enkel zichtbaar zijn voor beheerders')" />
+            {{-- <x-text-input id="isvisible" name="isvisible" type="checkbox" class="mt-1 block w-full" :value="old('isvisible', $user->profile->city)" autofocus autocomplete="isvisible" /> --}}
+                <x-text-input id="isvisible" name="isvisible" type="checkbox" class="mt-1 block " :value="old('isvisible', false)" autofocus autocomplete="isvisible" />
+            <x-input-error class="mt-2" :messages="$errors->get('isvisible')" />
+        </div>
+
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
