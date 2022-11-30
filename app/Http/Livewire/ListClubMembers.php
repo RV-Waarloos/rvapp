@@ -6,6 +6,8 @@ use App\Models\Rv\ClubMember;
 use App\Models\Rv\ClubMembership;
 use App\Models\Rv\ClubMembershipStatus;
 use App\Models\Rv\ClubMemberWithMembership;
+use App\Models\Rv\Department;
+use App\Models\Rv\Season;
 use Filament\Tables;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Contracts\View\View;
@@ -64,23 +66,12 @@ class ListClubMembers extends Component implements Tables\Contracts\HasTable
     protected function getTableFilters(): array
     {
         return [
-
             SelectFilter::make('Afdeling')
-            ->options([
-                'Wielertoeristen' => 'Wielertoeristen',
-                'Kaarten' => 'Kaarten',
-                'Petanque' => 'Petanque',
-            ])
+            ->options(array_combine(Department::orderedNames(),Department::orderedNames()))
             ->attribute('departmentname'),
 
             SelectFilter::make('Seizoen')
-            ->options([
-                '2022' => '2022',
-                '2021' => '2021',
-                '2020' => '2020',
-                '2019' => '2019',
-                '2018' => '2018',
-            ])
+            ->options(array_combine(Season::orderedYears(), Season::orderedYears()))
             ->attribute('year')->default(date('Y'))
         ];
     }

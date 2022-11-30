@@ -20,6 +20,11 @@ class Season extends Model
         return SeasonFactory::new();
     }
 
+    public static function orderedYears()
+    {
+        return Season::orderBy('year', 'Desc')->pluck('year')->toArray();
+    }
+
     /**
      * The attributes that should be cast.
      *

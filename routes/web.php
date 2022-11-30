@@ -36,6 +36,15 @@ Route::middleware('auth')->group(function () {
     {
         return view('clubmembers');
     })->name('clubmembers.list');
+
+    Route::get('/clubmembers/create', function ()
+    {
+        return view('clubmembers');
+    })->name('clubmembers.create');
+
+
+
+
 });
 
 require __DIR__.'/auth.php';
