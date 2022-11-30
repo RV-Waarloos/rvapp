@@ -16,7 +16,7 @@ class Profile extends Model
     }
 
     protected $fillable = [
-        'club_member_id',
+        'club_member_id', 'city', 'birthdate', 'streetandnumber', 'zipcode', 'phone',
     ];
 
     public function clubmember()

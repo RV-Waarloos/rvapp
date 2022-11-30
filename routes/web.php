@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/cm', [\App\Http\Livewire\ClubMember::class,'list']);
+Route::get('/cm',\App\Http\Livewire\ClubMember::class);
+
 Route::get('/', function () {
     return view('welcome');
 });

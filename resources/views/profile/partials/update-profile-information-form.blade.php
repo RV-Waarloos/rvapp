@@ -18,9 +18,15 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-input-label for="firstname" :value="__('Voornaam')" />
+            <x-text-input id="firstname" name="firstname" type="text" class="mt-1 block w-full" :value="old('firstname', $user->firstname)" required autofocus autocomplete="firstname" />
+            <x-input-error class="mt-2" :messages="$errors->get('firstname')" />
+        </div>
+
+        <div>
+            <x-input-label for="lastname" :value="__('Achternaam')" />
+            <x-text-input id="lastname" name="lastname" type="text" class="mt-1 block w-full" :value="old('lastname', $user->lastname)" required autofocus autocomplete="lastname" />
+            <x-input-error class="mt-2" :messages="$errors->get('lastname')" />
         </div>
 
         <div>
@@ -46,6 +52,37 @@
                 </div>
             @endif
         </div>
+
+        <div>
+            <x-input-label for="birthdate" :value="__('Geboortedatum')" />
+            <x-text-input id="birthdate" name="birthdate" type="date" class="mt-1 block w-full" :value="old('birthdate', $user->profile->birthdate)" autofocus autocomplete="birthdate" />
+            <x-input-error class="mt-2" :messages="$errors->get('birthdate')" />
+        </div>
+
+        <div>
+            <x-input-label for="phone" :value="__('Telefoon')" />
+            <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->profile->phone)" autofocus autocomplete="phone" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+        </div>
+
+        <div>
+            <x-input-label for="streetandnumber" :value="__('Straat en nummer')" />
+            <x-text-input id="streetandnumber" name="streetandnumber" type="text" class="mt-1 block w-full" :value="old('streetandnumber', $user->profile->streetandnumber)" autofocus autocomplete="streetandnumber" />
+            <x-input-error class="mt-2" :messages="$errors->get('streetandnumber')" />
+        </div>
+
+        <div>
+            <x-input-label for="zipcode" :value="__('Postcode')" />
+            <x-text-input id="zipcode" name="zipcode" type="text" class="mt-1 block w-full" :value="old('zipcode', $user->profile->zipcode)" autofocus autocomplete="zipcode" />
+            <x-input-error class="mt-2" :messages="$errors->get('zipcode')" />
+        </div>
+
+        <div>
+            <x-input-label for="city" :value="__('Gemeente')" />
+            <x-text-input id="city" name="city" type="text" class="mt-1 block w-full" :value="old('city', $user->profile->city)" autofocus autocomplete="city" />
+            <x-input-error class="mt-2" :messages="$errors->get('city')" />
+        </div>
+
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
