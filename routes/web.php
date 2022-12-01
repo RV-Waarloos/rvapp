@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClubMemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,8 +43,8 @@ Route::middleware('auth')->group(function () {
         return view('clubmembers');
     })->name('clubmembers.create');
 
-
-
+    Route::get('clubmembers/file-import-export', [ClubMemberController::class, 'fileImportExport']);
+    Route::post('clubmembers/file-import', [ClubMemberController::class, 'fileImport'])->name('file-import');
 
 });
 
