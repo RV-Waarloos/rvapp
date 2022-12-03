@@ -14,6 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
+        DB::statement($this->dropView());
         DB::statement($this->createView());
     }
 
@@ -61,7 +62,6 @@ return new class extends Migration
     private function dropView(): string
     {
         return <<<SQL
-
             DROP VIEW IF EXISTS `clubmemberoverview`;
             SQL;
     }
