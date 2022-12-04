@@ -4,10 +4,25 @@ namespace App\Models\Rv;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class ClubMemberOnboarding extends Model
 {
     use HasFactory;
+    use Notifiable;
+
+    protected $fillable = [
+        'firstname',
+        'lastname',
+        'email',
+        'initiator_id',
+        'department_id',
+        'status',
+    ];
+
+    protected $casts = [
+        'status' => OnboardingStatus::class,
+    ];
 
     protected $dispatchesEvents = [
         // 'created' => ChirpCreated::class,
@@ -25,6 +40,6 @@ class ClubMemberOnboarding extends Model
 
     public function department()
     {
-        return $this->belongsTo(ClubMember::class,'department_id');
+        return $this->belongsTo(Department::class,'department_id');
     }
 }

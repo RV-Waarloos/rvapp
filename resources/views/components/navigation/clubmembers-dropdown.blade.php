@@ -20,7 +20,7 @@
                     <x-dropdown-link :href="route('clubmembers.list')">
                         Overzicht
                     </x-dropdown-link>
-                    <x-dropdown-link :href="route('clubmembers.create')">
+                    <x-dropdown-link :href="route('onboard.clubmember')">
                         Nieuw clublid
                     </x-dropdown-link>
 

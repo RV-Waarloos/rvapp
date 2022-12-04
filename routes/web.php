@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ClubMemberController;
+use App\Http\Controllers\ClubMemberOnboardingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\OnboardClubMember;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,7 +47,15 @@ Route::middleware('auth')->group(function () {
 
     Route::get('clubmembers/file-import-export', [ClubMemberController::class, 'fileImportExport']);
     Route::post('clubmembers/file-import', [ClubMemberController::class, 'fileImport'])->name('file-import');
-
 });
+
+Route::prefix('onboard')->name('onboard.')->middleware('auth')->group(function () {
+    Route::get('/clubmember', OnboardClubMember::class)->name('clubmember');
+    Route::get('/list', [ClubMemberOnboardingController::class, 'index'])->name('list');
+    Route::get('/invitation/{onboarding}',  [ClubMemberOnboardingController::class, 'invitation'])->name('invitation')->middleware('signed');
+});
+
+
+
 
 require __DIR__.'/auth.php';

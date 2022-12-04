@@ -34,6 +34,11 @@ class Department extends Model
         return Department::where('parent_id', null)->orderBy('name', 'Asc')->pluck('name')->toArray();
     }
 
+    public static function orderedNamesAndIds()
+    {
+        return Department::where('parent_id', null)->orderBy('name', 'Asc')->pluck('name', 'id')->toArray();
+    }
+
     public function groups()
     {
         return $this->children();

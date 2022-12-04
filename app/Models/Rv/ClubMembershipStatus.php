@@ -2,7 +2,6 @@
 
 namespace App\Models\Rv;
 
-use Ramsey\Uuid\Type\Integer;
 
 enum ClubMembershipStatus: int {
     case Pending = 0;
