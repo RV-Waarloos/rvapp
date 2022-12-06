@@ -22,7 +22,7 @@ Route::get('/cm',\App\Http\Livewire\ClubMember::class);
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -49,13 +49,19 @@ Route::middleware('auth')->group(function () {
     Route::post('clubmembers/file-import', [ClubMemberController::class, 'fileImport'])->name('file-import');
 });
 
-Route::prefix('onboard')->name('onboard.')->middleware('auth')->group(function () {
-    Route::get('/clubmember', OnboardClubMember::class)->name('clubmember');
-    Route::get('/list', [ClubMemberOnboardingController::class, 'index'])->name('list');
+// Route::prefix('onboard')->name('onboard.')->middleware('auth')->group(function () {
+//     Route::get('/clubmember', OnboardClubMember::class)->name('clubmember');
+//     Route::get('/list', [ClubMemberOnboardingController::class, 'index'])->name('list');
+//     Route::get('/invitation/{onboarding}',  [ClubMemberOnboardingController::class, 'invitation'])->name('invitation')->middleware('signed');
+// });
+
+Route::group(['prefix' => 'onboard', 'as' => 'onboard.'], function() {
+    Route::middleware('auth')-> group(function () {
+        Route::get('/clubmember', OnboardClubMember::class)->name('clubmember');
+        Route::get('/list', [ClubMemberOnboardingController::class, 'index'])->name('list');
+    });
     Route::get('/invitation/{onboarding}',  [ClubMemberOnboardingController::class, 'invitation'])->name('invitation')->middleware('signed');
 });
-
-
 
 
 require __DIR__.'/auth.php';

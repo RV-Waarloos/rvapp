@@ -12,7 +12,7 @@ class TrustProxies extends Middleware
      *
      * @var array<int, string>|string|null
      */
-    protected $proxies;
+    protected $proxies = '*';  //changed to make signed urls work on Azure (see https://laravel.com/docs/9.x/requests#configuring-trusted-proxies)
 
     /**
      * The headers that should be used to detect proxies.

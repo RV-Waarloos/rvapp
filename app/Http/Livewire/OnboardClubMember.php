@@ -37,7 +37,7 @@ class OnboardClubMember extends Component implements Forms\Contracts\HasForms
         return [
             Card::make()->columns(2)
             ->schema([
-                Forms\Components\TextInput::make('firstname')->required()->minLength(1)->maxLength(64)->label('Voornaam'),
+                Forms\Components\TextInput::make('firstname')->required()->minLength(1)->maxLength(32)->label('Voornaam'),
                 Forms\Components\TextInput::make('lastname')->required()->minLength(2)->maxLength(32)->label('Achternaam'),
                 Forms\Components\TextInput::make('email')->email()->required()->label('Email')->unique(table: User::class),
                 Forms\Components\Select::make('department_id')

@@ -15,6 +15,14 @@
                 <div class="p-6 text-gray-900">
                     Dit is de publieke pagina van de RV Waarloos site
                 </div>
+
+
+                @if (session('statusflash'))
+                    <div class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-blue-700">
+                        {{ session('statusflash') }}
+                    </div>
+                @endif
+
             </div>
         </div>
     </div>
