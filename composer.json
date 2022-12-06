@@ -74,14 +74,14 @@
     "repositories": [
         {
             "type": "path",
-            "url": "d:/proto/packager/packages/rvwaarloos/rvwaarloos",
+            "url": "c:/rv-waarloos/packager/packages/rvwaarloos/rvwaarloos",
             "options": {
                 "symlink": false
             }
         },
         {
             "type": "path",
-            "url": "D:/rv-waarloos/rv-site-preset",
+            "url": "c:/rv-waarloos/rv-site-preset",
             "options": {
                 "symlink": false
             }

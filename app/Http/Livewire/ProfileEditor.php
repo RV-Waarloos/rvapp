@@ -20,6 +20,8 @@ class ProfileEditor extends Component implements Forms\Contracts\HasForms
     public ClubMemberOnboarding $onboarding;
     public bool $isOnboarding;
 
+    public bool $accept;
+
     public function mount(): void
     {
         if ($this->isOnboarding) {
@@ -28,6 +30,7 @@ class ProfileEditor extends Component implements Forms\Contracts\HasForms
                 'firstname' => $this->onboarding->firstname,
                 'lastname' => $this->onboarding->lastname,
                 'email' => $this->onboarding->email,
+                'visible' => true,
             ]);
         }
     }
@@ -62,7 +65,8 @@ class ProfileEditor extends Component implements Forms\Contracts\HasForms
                 ->schema([
                     Forms\Components\TextInput::make('password')->required()->password()->minLength(6)->maxLength(32)->confirmed()->label('Paswoord'),
                     Forms\Components\TextInput::make('password_confirmation')->required()->password()->minLength(6)->maxLength(32)->label('Herhaal paswoord'),
-
+                    Forms\Components\Checkbox::make('visible')->label('Maak mijn gegevens zichtbaar voor RV Waarloos leden'),
+                    Forms\Components\Checkbox::make('accept')->reactive()->label('Ik aanvaard de voorwaarden'),
                 ]),
         ]);
 
