@@ -1,3 +1,3 @@
 <div>
-    onboarding list (livewire)
+    {{ $this->table }}
 </div>

@@ -59,6 +59,7 @@ Route::group(['prefix' => 'onboard', 'as' => 'onboard.'], function() {
     Route::middleware('auth')-> group(function () {
         Route::get('/clubmember', OnboardClubMember::class)->name('clubmember');
         Route::get('/list', [ClubMemberOnboardingController::class, 'index'])->name('list');
+        Route::get('/cancel', [ClubMemberOnboardingController::class, 'store'])->name('cancel');
     });
     Route::get('/invitation/{onboarding}',  [ClubMemberOnboardingController::class, 'invitation'])->name('invitation')->middleware('signed');
 });

@@ -44,12 +44,13 @@ class ProfileEditor extends Component implements Forms\Contracts\HasForms
                     Forms\Components\TextInput::make('firstname')->required()->minLength(1)->maxLength(32)->label('Voornaam'),
                     Forms\Components\TextInput::make('lastname')->required()->minLength(2)->maxLength(32)->label('Achternaam'),
                     Forms\Components\TextInput::make('email')->email()->required()->label('Email')->unique(table: User::class),
-                    Forms\Components\DatePicker::make('profile.birthdate')->displayFormat('d/m/Y')->label('Geboortedatum')
+                    Forms\Components\DatePicker::make('profile.birthdate')->displayFormat('d/m/Y')->label('Geboortedatum'),
+                    Forms\Components\FileUpload::make('avatar')->image()->disk('local')->directory('temp-avatars'),
                 ]),
             Wizard\Step::make('Adresgegevens')
                 ->schema([
-                    Forms\Components\TextInput::make('streetandnumber')->maxLength(64)->label('Straat en nummer'),
-                    Forms\Components\TextInput::make('zipcode')->numeric()->mask(
+                    Forms\Components\TextInput::make('profile.streetandnumber')->maxLength(64)->label('Straat en nummer'),
+                    Forms\Components\TextInput::make('profile.zipcode')->numeric()->mask(
                         fn (TextInput\Mask $mask) => $mask
                             ->numeric()
                             ->decimalPlaces(0)
@@ -57,8 +58,8 @@ class ProfileEditor extends Component implements Forms\Contracts\HasForms
                             ->minValue(1000)
                             ->maxValue(9999)
                     )->label('Postcode'),
-                    Forms\Components\TextInput::make('city')->maxLength(32)->label('Gemeente'),
-                    Forms\Components\TextInput::make('phone')->tel()->label('Telefoon'),
+                    Forms\Components\TextInput::make('profile.city')->maxLength(32)->label('Gemeente'),
+                    Forms\Components\TextInput::make('profile.phone')->tel()->label('Telefoon'),
 
                 ]),
             Wizard\Step::make('Privacy akkoord')
@@ -86,6 +87,14 @@ class ProfileEditor extends Component implements Forms\Contracts\HasForms
 
         $cm = ClubMember::create($attrs);
         $cm->profile()->create($attrs['profile']);
+
+        $cm->refresh();
+        if ($attrs['avatar'] != null) {
+            $cm->profile->addMediaFromDisk($attrs['avatar'], 'local')->toMediaCollection('avatar');
+        } else {
+            $avagen = 'https://ui-avatars.com/api/?name=' . $attrs['firstname'] . '+' . $attrs['lastname'];
+            $cm->profile->addMediaFromUrl($avagen)->toMediaCollection('avatar');
+        }
 
         if ($this->isOnboarding) {
             $this->onboarding->status = OnboardingStatus::Registered;
