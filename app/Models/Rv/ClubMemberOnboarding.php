@@ -2,6 +2,7 @@
 
 namespace App\Models\Rv;
 
+use App\Events\ClubMemberOnboardingStarted;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -25,7 +26,7 @@ class ClubMemberOnboarding extends Model
     ];
 
     protected $dispatchesEvents = [
-        // 'created' => ChirpCreated::class,
+        'created' => ClubMemberOnboardingStarted::class,
     ];
 
     public function initiator()

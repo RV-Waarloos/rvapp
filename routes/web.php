@@ -4,6 +4,7 @@ use App\Http\Controllers\ClubMemberController;
 use App\Http\Controllers\ClubMemberOnboardingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\OnboardClubMember;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,7 +60,7 @@ Route::group(['prefix' => 'onboard', 'as' => 'onboard.'], function() {
     Route::middleware('auth')-> group(function () {
         Route::get('/clubmember', OnboardClubMember::class)->name('clubmember');
         Route::get('/list', [ClubMemberOnboardingController::class, 'index'])->name('list');
-        Route::get('/cancel', [ClubMemberOnboardingController::class, 'store'])->name('cancel');
+        Route::get('/bulk', fn(): View => view('clubmemberonboarding.bulk') )->name('bulk');
     });
     Route::get('/invitation/{onboarding}',  [ClubMemberOnboardingController::class, 'invitation'])->name('invitation')->middleware('signed');
 });

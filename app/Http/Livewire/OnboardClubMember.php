@@ -75,7 +75,7 @@ class OnboardClubMember extends Component implements Forms\Contracts\HasForms
 
         $onboarding = ClubMemberOnboarding::create($attrs);
 
-        ClubMemberOnboardingStarted::dispatch($onboarding);
+        // ClubMemberOnboardingStarted::dispatch($onboarding);
     }
 
     public function create(): void

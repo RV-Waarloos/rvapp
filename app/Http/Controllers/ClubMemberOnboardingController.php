@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rv\ClubMemberOnboarding;
+use App\Models\Rv\OnboardingStatus;
 use Illuminate\Http\Request;
 
 class ClubMemberOnboardingController extends Controller
@@ -20,7 +21,11 @@ class ClubMemberOnboardingController extends Controller
 
     public function invitation(ClubMemberOnboarding $onboarding)
     {
-        $aa = $onboarding->id;
+        if ($onboarding->status != OnboardingStatus::WaitRegistration) {
+            // log this here
+            abort(404);
+        }
+
         return view('clubmemberonboarding.register', [
             'onboarding' => $onboarding,
         ]);

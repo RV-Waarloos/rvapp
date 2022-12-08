@@ -23,7 +23,7 @@
                     <x-dropdown-link :href="route('onboard.clubmember')">
                         Nieuw clublid
                     </x-dropdown-link>
-                    <x-dropdown-link :href="route('onboard.clubmember')">
+                    <x-dropdown-link :href="route('onboard.bulk')">
                         Nieuwe clubleden opladen
                     </x-dropdown-link>
                     <x-dropdown-link :href="route('onboard.list')">
