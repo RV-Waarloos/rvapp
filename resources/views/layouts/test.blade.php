@@ -20,6 +20,10 @@
         @stack('scripts')
     </head>
     <body class="antialiased">
+
+        <x-site-navigator />
+
+
         <div class="min-h-screen xl:max-w-7xl mx-auto border-2">
 
             <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 border-2 border-green-300">
