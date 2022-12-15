@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClubMemberController;
 use App\Http\Controllers\ClubMemberOnboardingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\DepartmentPageComponent;
 use App\Http\Livewire\OnboardClubMember;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
@@ -73,5 +74,14 @@ Route::group(['prefix' => 'onboard', 'as' => 'onboard.'], function() {
     Route::get('/invitation/{onboarding}',  [ClubMemberOnboardingController::class, 'invitation'])->name('invitation')->middleware('signed');
 });
 
+// Route::get('/departments/{department}/pages/{departmentpage}', DepartmentPageComponent::class);
+Route::get('/departments/{department}/pages/{departmentpage}/{action?}', DepartmentPageComponent::class)->name('departmentpage');
+Route::post('/departments/{department}/pages/{departmentpage}', DepartmentPageComponent::class)->name('departmentpage.save');
+
+// Route::group(['prefix' => 'departmantpages', 'as' => 'departmentpages.'], function()  {
+//     Route::middleware('auth')->group(function() {
+//         Route::get('/', DepartmentPage::class)->name('show');
+//     });
+// });
 
 require __DIR__.'/auth.php';

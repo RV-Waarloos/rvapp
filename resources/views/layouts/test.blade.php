@@ -15,9 +15,12 @@
         {{-- <script src="https://cdn.
         tailwindcss.com"></script> --}}
 
+        {{-- <link rel="stylesheet" href="/ckeditor-content-styles.css"> --}}
+
+
         @livewireStyles
         @livewireScripts
-        @stack('scripts')
+        {{-- @stack('scripts') --}}
     </head>
     <body class="antialiased">
         <div class="min-h-screen xl:max-w-7xl mx-auto border-2">
@@ -134,6 +137,7 @@
 
             {{-- @include('layouts.footer') --}}
         </div>
+        @stack('scripts')
         @livewire('notifications')
     </body>
 </html>
