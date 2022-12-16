@@ -1,8 +1,16 @@
 @props(['department'])
 
-<article 
-    {{ $attributes->merge(['class' => 'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }}>
-    <div class="py-6 px-5 h-full flex flex-col">
-        {{ $department->name }}
+<article class="flex m-2 ">
+    <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+        <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+            src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg" alt="" />
+        <div class="p-6 flex flex-col justify-start">
+            <h5 class="text-gray-900 text-xl font-medium mb-2">{{ $department->name }}</h5>
+            <p class="text-gray-700 text-base mb-4">
+                This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                is a little bit longer.
+            </p>
+            <p class="text-gray-600 text-xs">Last updated 3 mins ago</p>
+        </div>
     </div>
 </article>

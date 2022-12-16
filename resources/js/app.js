@@ -18,3 +18,6 @@ import.meta.glob([
     '../images/**',
     '../fonts/**',
   ]);
+
+  import 'tw-elements';
+  

@@ -9,6 +9,7 @@ module.exports = {
         './resources/views/**/*.blade.php',
         './resources/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
+        './node_modules/tw-elements/dist/js/**/*.js',
     ],
 
     theme: {
@@ -28,5 +29,6 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('tw-elements/dist/plugin'),
     ],
 };

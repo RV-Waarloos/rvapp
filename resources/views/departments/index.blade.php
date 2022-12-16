@@ -1,20 +1,14 @@
 <x-test-layout>
-    <div class=" text-lg">
-        Afdelingen
-    </div>
+    <h2>Afdelingen</h2>
 
-    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
-
+    <div class="flex flex-wrap">
         @if ($departments->count())
-            <x-departments.grid :departments="$departments" />
+            @foreach ($departments as $department)
+                <x-departments.card :department="$department" />
+            @endforeach
             {{ $departments->links() }}
         @else
             <p class="text-center">Er zijn nog geen afdelingen gekend.</p>
         @endif
-    </main>
-
-
-
-
-
+    </div>
 </x-test-layout>
