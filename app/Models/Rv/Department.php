@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Rvwaarloos\Rvwaarloos\Database\Factories\DepartmentFactory;
 use App\Models\Rv\Traits\SelfReferenceTrait;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Department extends Model
+class Department extends Model implements HasMedia
 {
     use HasFactory;
-
+    use InteractsWithMedia;
     use SelfReferenceTrait;
 
     protected static function newFactory()
@@ -62,5 +64,13 @@ class Department extends Model
     public function departmentpages()
     {
         return $this->hasMany(DepartmentPage::class);
+    }
+
+    public function activeDepartmentPage(): ?DepartmentPage
+    {
+        if ($this->departmentpages()->count() == 0) {
+            return null;
+        }
+        return $this->departmentpages()->first();
     }
 }

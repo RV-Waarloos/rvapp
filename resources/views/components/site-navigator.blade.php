@@ -1,3 +1,3 @@
 <div>
-    number of menus: {{ count($navigationTree) }}
+    {{-- number of menus: {{ count($navigationTree) }} --}}
 </div>

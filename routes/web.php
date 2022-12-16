@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ClubMemberController;
 use App\Http\Controllers\ClubMemberOnboardingController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DepartmentPageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\DepartmentPageComponent;
 use App\Http\Livewire\OnboardClubMember;
@@ -74,6 +76,21 @@ Route::group(['prefix' => 'onboard', 'as' => 'onboard.'], function() {
     Route::get('/invitation/{onboarding}',  [ClubMemberOnboardingController::class, 'invitation'])->name('invitation')->middleware('signed');
 });
 
+
+// Departments
+Route::group(['prefix' => 'departments', 'as' => 'departments.'], function() {
+
+    Route::middleware('auth')-> group(function () {
+        Route::get('/', [DepartmentController::class, 'index'])->name('list');
+    });
+
+
+
+});
+
+
+
+
 // Route::get('/departments/{department}/pages/{departmentpage}', DepartmentPageComponent::class);
 Route::get('/departments/{department}/pages/{departmentpage}/{action?}', DepartmentPageComponent::class)->name('departmentpage');
 Route::post('/departments/{department}/pages/{departmentpage}', DepartmentPageComponent::class)->name('departmentpage.save');
@@ -83,5 +100,8 @@ Route::post('/departments/{department}/pages/{departmentpage}', DepartmentPageCo
 //         Route::get('/', DepartmentPage::class)->name('show');
 //     });
 // });
+
+Route::get('/departmentpages/{department}', [DepartmentPageController::class, 'showActivePageForDepartment'])->name('departmentpage.active');
+
 
 require __DIR__.'/auth.php';
