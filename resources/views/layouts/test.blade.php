@@ -27,7 +27,7 @@
         <x-site-navigator />
 
 
-        <div class="min-h-screen xl:max-w-7xl mx-auto border-2">
+        <div class="min-h-screen xl:max-w-7xl mx-auto">
 
             <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 border-2 border-green-300">
                 <div x-data="{ open: false }" class="border-2 border-red-600 flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">

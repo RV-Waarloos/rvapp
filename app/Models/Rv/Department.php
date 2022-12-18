@@ -9,6 +9,7 @@ use Rvwaarloos\Rvwaarloos\Database\Factories\DepartmentFactory;
 use App\Models\Rv\Traits\SelfReferenceTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Department extends Model implements HasMedia
 {
@@ -72,5 +73,23 @@ class Department extends Model implements HasMedia
             return null;
         }
         return $this->departmentpages()->first();
+    }
+
+    // Media support
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('department-logo')
+            ->singleFile()
+            ->acceptsFile(function ($file) {
+                return $file->mimeType === 'image/jpeg';
+            });
+    }
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(50)
+            ->height(50)
+            ->nonQueued();
     }
 }

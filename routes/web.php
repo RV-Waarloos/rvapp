@@ -80,15 +80,26 @@ Route::group(['prefix' => 'onboard', 'as' => 'onboard.'], function() {
 // Departments
 Route::group(['prefix' => 'departments', 'as' => 'departments.'], function() {
 
+    // Manage departments
     Route::middleware('auth')-> group(function () {
         Route::get('/', [DepartmentController::class, 'index'])->name('list');
+        Route::get('/{department}', [DepartmentController::class, 'edit'])->name('edit');
+        Route::patch('/{department}',[DepartmentController::class, 'update'])->name('update');
     });
+
+    // Manage department pages
+    Route::middleware('auth')-> group(function () {
+        // Route::get('/{department}/home', [DepartmentPageController::class, 'showActivePageForDepartment'])->name('departmentpage.show');
+        Route::get('/{department/homepages/create', [DepartmentPageController::class, 'create'])->name('homepages.create');
+    });
+
+
 
 
 
 });
 
-
+// Route::resource('homepages', DepartmentPageController::class);
 
 
 // Route::get('/departments/{department}/pages/{departmentpage}', DepartmentPageComponent::class);
@@ -100,8 +111,6 @@ Route::post('/departments/{department}/pages/{departmentpage}', DepartmentPageCo
 //         Route::get('/', DepartmentPage::class)->name('show');
 //     });
 // });
-
-Route::get('/departmentpages/{department}', [DepartmentPageController::class, 'showActivePageForDepartment'])->name('departmentpage.active');
 
 
 require __DIR__.'/auth.php';

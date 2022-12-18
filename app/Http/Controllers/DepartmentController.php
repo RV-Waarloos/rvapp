@@ -58,7 +58,8 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-        //
+        return view('departments.edit')
+            ->with('department', $department);
     }
 
     /**
@@ -70,7 +71,20 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, Department $department)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
+
+        $department->name = $validated['name'];
+
+        if ($request->hasFile('logo')) {
+            $department
+            ->addMediaFromRequest('logo')
+            ->toMediaCollection('department-logo');
+        }
+
+        $department->save();
+        return redirect()->route('departments.list');
     }
 
     /**
